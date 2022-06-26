@@ -40,10 +40,11 @@ app.post('/', function(req, res) {
     
     const options = {
         method: "POST",
-        auth: "Swapnil7:" + "50fd7740620d627419a0489e9325aad3-us12"
+        auth: "Swapnil:" + "50fd7740620d627419a0489e9325aad3-us12"
     };
 
     const request = https.request(url, options, function(response){
+        console.log(response.statusCode);
     
         if(response.statusCode === 200){
             console.log("i am in the if block");
@@ -54,8 +55,7 @@ app.post('/', function(req, res) {
             res.sendFile(__dirname + "/failure.html");
         }
         console.log(res.statusCode);
-        response.on("data", function(data){
-            
+        response.on("data", function(data){  
         });
     });
     request.write(jsonData);

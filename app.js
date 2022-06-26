@@ -44,7 +44,7 @@ app.post('/', function(req, res) {
     };
 
     const request = https.request(url, options, function(response){
-        console.log(response.statusCode);
+        
     
         if(response.statusCode === 200){
             console.log("i am in the if block");
@@ -54,7 +54,7 @@ app.post('/', function(req, res) {
             console.log("i am in the else block");
             res.sendFile(__dirname + "/failure.html");
         }
-        console.log(res.statusCode);
+        console.log(response.statusCode);
         response.on("data", function(data){  
         });
     });
